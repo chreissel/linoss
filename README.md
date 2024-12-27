@@ -1,2 +1,2 @@
-# linoss
-Oscillatory State-Space Models
+# Oscillatory State-Space Models
+Code repository for oscillatory state-space models
