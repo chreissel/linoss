@@ -7,6 +7,8 @@ We propose Linear Oscillatory State-Space models (LinOSS) for efficiently learni
 
 ![linoss_animation](https://github.com/user-attachments/assets/9d034ddf-3fa8-48e8-9818-8c3217015135)
 
+## Disclaimer
+Tis repository is an extension of [https://github.com/Benjamin-Walker/log-neural-cdes](https://github.com/Benjamin-Walker/log-neural-cdes). 
 
 ## Requirements
 
