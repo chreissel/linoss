@@ -103,3 +103,15 @@ The configuration files for all the experiments with fixed hyperparameters can b
 The `outputs` folder contains a zip file of the output files from the UEA, and PPG experiments. 
 
 ---
+
+# Citation
+If you found our work useful in your research, please cite our paper at:
+```bibtex
+@inproceedings{rusch2022linoss,
+  title={Oscillatory State-Space Models},
+  author={Rusch, T Konstantin and Rus, Daniela},
+  booktitle={International Conference on Learning Representations},
+  year={2025}
+}
+```
+(Also consider starring the project on GitHub.)
