@@ -1,9 +1,12 @@
-<h1 align='center'> Oscillatory State-Space Models <br></h1>
+# Oscillatory State-Space Models
 
-This  repository implements Linear Oscillatory State-Space Models (LinOSS), a novel, effective, and efficient 
-state-space model for learning on long sequences.
+This  repository contains the official implementation for the ICLR2025 Oral paper [Oscillatory State-Space Models]([https://openreview.net/forum?id=PxTIG12RRHS](https://openreview.net/pdf?id=GRMfXcAAFh)) by [T. Konstantin Rusch]([https://yang-song.github.io](https://konstantinrusch.com/)) and [Daniela Rus]([https://cs.stanford.edu/~poole/](https://www.csail.mit.edu/person/daniela-rus)).
 
----
+--------------------
+We propose Linear Oscillatory State-Space models (LinOSS) for efficiently learning on long sequences. Inspired by cortical dynamics of biological neural networks, we base our proposed LinOSS model on a system of forced harmonic oscillators. A stable discretization, integrated over time using fast associative parallel scans, yields the proposed state-space model. 
+
+![linoss_animation](https://github.com/user-attachments/assets/9d034ddf-3fa8-48e8-9818-8c3217015135)
+
 
 ## Requirements
 
