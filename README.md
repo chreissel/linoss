@@ -1,4 +1,4 @@
-# Oscillatory State-Space Models (ICLR2025)
+# Oscillatory State-Space Models (ICLR2025 Oral)
 
 This  repository contains the official implementation for the paper [Oscillatory State-Space Models](https://openreview.net/pdf?id=GRMfXcAAFh) by [T. Konstantin Rusch](https://konstantinrusch.com/) and [Daniela Rus](https://www.csail.mit.edu/person/daniela-rus).
 
