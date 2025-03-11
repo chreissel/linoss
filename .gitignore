@@ -1,0 +1,7 @@
+__pycache__/*
+data_dir/__pycache__/
+data_dir/raw/*
+data_dir/processed/*
+results/*
+models/__pycache__/*
+

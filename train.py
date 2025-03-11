@@ -305,7 +305,10 @@ def train_model(
                 jnp.save(output_dir + "/test_metric.npy", test_metric_save)
 
     print(f"Test metric: {test_metric}")
-    f = open('results/'+str(dataset_name)+'/id_' + str(id) + '.txt', 'a')
+    path = 'results/'+str(dataset_name)
+    if not os.path.exists(path):
+        os.makedirs(path)
+    f = open(path +'/id_' + str(id) + '.txt', 'a')
     f.write(str(test_metric * 100.) + '\n')
     f.close()
 

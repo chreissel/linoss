@@ -33,6 +33,7 @@ conda install pre-commit=3.7.1 sktime=0.30.1 tqdm=4.66.4 matplotlib=3.8.4 -c con
 # Substitue for correct Jax pip install: https://jax.readthedocs.io/en/latest/installation.html
 pip install -U "jax[cuda12]" "jaxlib[cuda12]" equinox==0.11.4 optax==0.2.2 diffrax==0.5.1 signax==0.1.1
 ```
+Please be aware that current setup as describe above only supports `jax` < v0.4.34.
 
 If running `data_dir/process_uea.py` throws this error: No module named 'packaging'
 Then run: `pip install packaging`
