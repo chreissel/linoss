@@ -308,6 +308,50 @@ def create_uea_dataset(
     )
 
 
+def create_gw_dataset(
+    data_dir,
+    name,
+    use_idxs,
+    use_presplit,
+    stepsize,
+    depth,
+    include_time,
+    T,
+    *,
+    key,
+):
+
+    with open(data_dir + f"/processed/gw/{name}/data.pkl", "rb") as f:
+        data = pickle.load(f)
+    with open(data_dir + f"/processed/gw/{name}/labels.pkl", "rb") as f:
+        labels = pickle.load(f)
+    onehot_labels = jnp.zeros((len(labels), len(jnp.unique(labels))))
+    onehot_labels = onehot_labels.at[jnp.arange(len(labels)), labels].set(1)
+    if use_idxs:
+        with open(data_dir + f"/processed/gw/{name}/original_idxs.pkl", "rb") as f:
+            idxs = pickle.load(f)
+    else:
+        idxs = None
+
+    if include_time:
+        ts = (T / data.shape[1]) * jnp.repeat(
+            jnp.arange(data.shape[1])[None, :], data.shape[0], axis=0
+        )
+        data = jnp.concatenate([ts[:, :, None], data], axis=2)
+    return dataset_generator(
+        name,
+        data,
+        onehot_labels,
+        stepsize,
+        depth,
+        include_time,
+        T,
+        idxs=idxs,
+        use_presplit=use_presplit,
+        key=key,
+    )
+
+
 def create_toy_dataset(data_dir, name, stepsize, depth, include_time, T, *, key):
     with open(data_dir + "/processed/toy/signature/data.pkl", "rb") as f:
         data = pickle.load(f)
@@ -405,6 +449,9 @@ def create_dataset(
     toy_subfolders = [
         f.name for f in os.scandir(data_dir + "/processed/toy") if f.is_dir()
     ]
+    gw_subfolders = [
+        f.name for f in os.scandir(data_dir + "/processed/gw") if f.is_dir()
+    ]
 
     if name in uea_subfolders:
         return create_uea_dataset(
@@ -425,6 +472,18 @@ def create_dataset(
     elif name == "ppg":
         return create_ppg_dataset(
             data_dir, use_presplit, stepsize, depth, include_time, T, key=key
+        )
+    elif name in gw_subfolders:
+        return create_gw_dataset(
+            data_dir,
+            name,
+            use_idxs,
+            use_presplit,
+            stepsize,
+            depth,
+            include_time,
+            T,
+            key=key,
         )
     else:
         raise ValueError(f"Dataset {name} not found in UEA folder and not toy dataset")
