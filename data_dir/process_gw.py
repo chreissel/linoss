@@ -40,7 +40,7 @@ def create_jax_data(bkg_file, sig_file, test_frac=0.5):
             data = f[group_key][()]
         f.close()
         # downsample data by factor 4 to 1024Hz to save space on the GPU
-        data = data[:,::4]
+        #data = data[:,::4]
         data = data[:, :, np.newaxis]
         target = np.full(data.shape[0], label)
         return data, target
@@ -85,9 +85,6 @@ def convert_all_files(data_dir):
         )
         data = jnp.concatenate([train_data, test_data])
         labels = jnp.concatenate([train_labels, test_labels])
-
-        import pdb
-        pdb.set_trace()
 
         unique_rows, indices, inverse_indices = np.unique(
                 data, axis=0, return_index=True, return_inverse=True
